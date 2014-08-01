@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ryan Juve - Temporary Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.0.min.js"></script>
+        <script src="js/vendor/raphael-min.js"></script>
+    </head>
+    <body ng-controller="MainCtrl">
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="wrapper">
+            
+        <div class="grid">
+            <header>Revenue from Owned Posts</header>
+            <dotgraph ng-model="dotGraphData" channel-colors="channelColors">
+        </div>
+        <div class="grid">
+            <header>Owned Conversions by Channel</header><button style="margin-left: 40px; line-height:16px" ng-click="stackSwitch()">{{groupStack}}</button>
+            <barChartStackGroup ng-model="barChartModel.stacked" chart-mode="groupStack" sortable conversion-colors="conversionColors">
+        </div>
+        <br>
+        <div class="gridS">
+            <header>Impressions</header>
+            <barcharthoriz ng-model="barChartModel.impressions" channel-colors="channelColors">
+        </div>
+        <div class="gridS">
+            <header>Fastest To Convert</header>
+            <barcharthoriz ng-model="barChartModel.fastestToConvert" finish-line="finish-line" channel-colors="channelColors">
+        </div>
+        <div  class="gridS">
+            <header>Return Visit Rate</header>
+            <barcharthoriz ng-model="barChartModel.returnVisitRate" percent="percent" channel-colors="channelColors">
+        </div>
+            
+        </div>
+        <script src="js/plugins.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
